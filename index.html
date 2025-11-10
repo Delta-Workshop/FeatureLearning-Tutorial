@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>DeLTa 2026: Deep Generative Model in Machine Learning: Theory, Principle and Efficacy</title>
+
+
+    <style>
+        body {
+             /*font-family: 'Helvetica', sans-serif; Professional clean font */
+            font-family: 'Roboto', sans-serif; /* 使用更为紧凑的 Roboto 字体 */
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url('brazil.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Background image wrapper */
+        .link {
+        	/* text-decoration: underline; */
+        }
+        
+        a.link {
+            text-decoration: underline;
+            color: #337ab7; /* A shade of blue */
+        }
+
+        /* Adding an overlay to the background for transparency */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0, 0.5); 
+            z-index: 0; /* Keep the overlay behind the content */
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+            color: #FFFFFF;
+        }
+
+        header h1 {
+            font-size: 3.0rem;
+            font-weight: bold;
+            color: #FFFFFF; /* White color for the heading */
+            margin: 0;
+            z-index: 1; /* Ensure content is on top of the overlay */
+        }
+
+        .subtitle {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+            color: #00BFFF;
+            z-index: 1;
+            margin-top: 60px;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Transparent black */
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .button {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 50px;
+            z-index: 1;
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Centering content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+    
+
+        .container h2 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .container p {
+            margin: 10px 0; /* 缩小段落之间的间距 */
+            font-size: 17px; /* 将字体大小调整为 16px，更适合长段落 */
+            padding: 0; /* 确保左右没有额外内边距 */
+            line-height: 1.6;
+            text-align: justify; 
+            /* margin-bottom: 20px; /*
+            color: #333;  
+        }
+
+        .container p:last-child {
+            margin-left: 0; /* 去除多余左边距 */
+            padding-left: 0; /* 去除多余左内边距 */
+        }
+
+        .container ol, .container ul {
+            text-align: left;
+            margin: 10px 0; /* 缩小上下间距 */
+            padding-left: 20px;  增加左边距，区分段落 */
+        }
+
+        .container ol li {
+            margin-bottom: 8px; /* 增加列表项间距，提升层次感 */
+            line-height: 1.5; /* 列表行间距 */
+        }
+
+        .Description em {
+            color: #222; /* 调整斜体文本颜色，使其更加突出 */
+        }
+
+/*         .container ol li::marker { */
+/*             color: #ffcc00; /* 使用黄色标记符号，使列表项更加显眼 */ 
+/*             font-size: 0.8em; /* 增大标记符号的大小 */ 
+/*         } */
+
+        .Description section {
+            padding: 15px;
+            background-color: #f4f4f4; /* 添加浅灰色背景 */
+            margin-bottom: 20px; /* 增加每个 section 之间的间距 */
+            border-radius: 8px; /* 增加圆角 */
+        }
+
+
+.section-style {
+    background-color: #f9f9f9; /* Light grey background */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Space between sections */
+
+    /* Consistent font size and spacing */
+    font-size: 17px; /* Font size */
+    line-height: 1.6; /* Line spacing */
+    color: #333; /* Text color */
+}
+
+/* Consistent spacing for text elements */
+.section-style p {
+    margin: 10px 0; /* Space between paragraphs */
+    padding-left: 0; /* No padding for paragraphs */
+    margin-left: 0; /* Ensure paragraphs have no margin on the left */
+}
+        
+.section-style ul, 
+.section-style ol {
+    margin: 10px 0; /* Space between paragraphs and lists */
+/*     padding: 0; /* Increase the padding to move the list further to the right */ 
+    margin-left: 0;
+    padding-left: 40px; 
+}
+
+/* List item spacing */
+.section-style ol li,
+.section-style ul li {
+    margin-bottom: 8px; /* Space between list items */
+    line-height: 1.5; /* Line height for list items */
+    padding-left: 5px;
+}
+
+/* Heading styling */
+.section-style h2 {
+    font-size: 2.0rem; /* Adjust heading size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px; /* Space below headings */
+}
+
+/* Marker styling for lists */
+.section-style ol li::marker, 
+.section-style ul li::marker {
+/*     color: #ffcc00;  */
+    font-size: 1.2em; /* Larger marker size */
+}
+
+
+
+        /* 增加容器背景色和边框 */
+        .Description {
+            background-color: #f9f9f9; /* 设置浅灰色背景 */
+            padding: 20px; /* 增加内边距 */
+            border: 1px solid #ddd; /* 添加浅灰色边框 */
+            border-radius: 8px; /* 增加圆角效果 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+        }  
+
+        /* Overview Section */
+        .overview {
+            background-color: #f0f4fa;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .organizer-section {
+            /*display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 20px; 
+            background-color: #333; */
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center; /* 确保标题居中 */
+        }
+
+      
+
+        .organizer-container {
+            display: flex;
+            flex-wrap: wrap;
+/*             justify-content: center; */
+            justify-content: flex-start;
+/*             gap: 20px;  */
+        }
+
+        
+/*         .organizer {
+            background-color: #444;
+            color: #fff;
+            width: calc(33.33% - 40px); 
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; 
+        } */
+        .organizer {
+            width: calc(33.333% - 20px); /* Adjust width considering margins */
+            margin-bottom: 20px;
+            margin-right: 30px; /* Space between items */
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            box-sizing: border-box;
+        }
+
+        .organizer:nth-child(3n) {
+            margin-right: 0; /* Remove right margin from every third item */
+        }
+        
+        /* Ensure images are centered above the names */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            max-width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Media query for smaller screens to adjust the number of organizers per row */
+        @media (max-width: 1024px) {
+            .organizer {
+                width: calc(50% - 20px); /* Two organizers per row */
+            }
+            .organizer:nth-child(2n) {
+                margin-right: 0; /* Remove right margin from every second item */
+            }
+            .organizer:nth-child(3n) {
+                margin-right: 30px; /* Reset margin for items that were previously affected */
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .organizer {
+                width: 100%; /* One organizer per row */
+                margin-right: 0;
+            }
+        }
+        
+        .organizer h3 {
+            font-size: 1.2rem;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        
+        .organizer p {
+            font-size: 1rem;
+            margin: 0;
+            color: #000000;
+            text-align: center; /* Center the affiliation text */
+        }
+    </style>
+</head>
+<body>
+
+  <div class="hero">
+        <nav>
+            <a href="#home">Home</a> |
+            <a href="#speakers">Speakers</a> |
+            <a href="#call">Call for Papers</a> |
+            <a href="#schedule">Schedule</a> |
+            <a href="#awards">Awards</a> |
+            <a href="#organizers">Organizers</a> 
+        </nav> 
+
+        <div class="hero-text">
+            <header>
+                <h1>2nd Workshop on Deep Generative Model in Machine Learning: <br> Theory, Principle and Efficacy</h1>
+            </header>
+            <p class="subtitle">ICLR 2026, Rio de Janeiro, Brazil</p>
+<!--             <p class="subtitle">The Thirteenth International Conference on Learning Representations</p> -->
+<!--             <p style="color: #FFFFFF;">@Singapore EXPO</p>
+            <p style="color: #FFFFFF;">	Mon April 28th</p> -->
+            <a href="https://openreview.net/group?id=ICLR.cc/2025/Workshop/DeLTa" target="_blank">
+                <button class="button">Submission Site</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="home" class="Description section-style">
+            <h2>Description</h2>
+            <p>Deep Generative Models (DGMs) have significantly advanced and empowered artificial intelligence (AI) over the past decade. From variational autoencoders to generative adversarial networks, flow-based models, and most recently diffusion models, DGMs continue to revolutionize the field of AI.</p>
+            <p>Despite the tremendous progress in the development of DGMs, significant challenges remain in both theoretical foundations and practical applications. 
+               The current <em>theoretical</em> frameworks fall short of providing sustainable and practical principles for DGMs due to:</p>
+            <ol>
+                <li>A considerable gap between theoretical assumptions and real-world practices, making it difficult to reliably describe and predict the behavior of DGMs in practical settings. </li>
+                <li>The rapid evolution of AI paradigms—such as generative adversarial networks and diffusion models—which frequently shift the focus of theoretical research, leaving gaps in the understanding of newer architectures.</li>
+            </ol>
+            <p>On the <em>algorithmic</em> front, DGMs face critical issues related to computational efficiency and scalability. As models grow in complexity and size, they require increasingly large datasets and computational resources, which makes training and deployment a significant challenge.</p>
+            <ol>
+                <li>Training instability and convergence issues, especially in adversarial settings, can result in unreliable model outputs.</li>
+                <li>Scaling DGMs for high-resolution or multi-modal data is computationally intensive and often leads to a trade-off between model accuracy and training time.</li>
+                <li>Practical applications, such as generative tasks in high-dimensional spaces or large-scale deployments in industry, demand more robust solutions for ensuring efficiency without compromising the quality of generated data.</li>
+            </ol>
+            <p>This workshop will center around these challenges, aiming to bring together experts from learning theory and applications.</p>
+        </section>
+
+
+
+<section id="call" class="section-style">
+    <h2>Call for Papers</h2>
+    <p>We are excited to invite submissions to the <strong>ICLR 2025 Workshop on Deep Generative Models: Theory, Principle, and Efficacy</strong>. This workshop aims to explore challenges and opportunities in advancing the theoretical foundations and practical applications of deep generative models (DGMs).</p>
+
+<!--     <div style="background-color: #ffcc00; padding: 10px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 5px; color: #333;">
+      <p><span style="color: #d32f2f;">Important Update:</span> The camera-ready submission deadline has been extended to <span style="color: #00796b;">April 15, 2025 (AOE)</span>. Please update your document header to "Published as a DeLTa Workshop Paper at ICLR 2025".</p>
+    </div> -->
+
+<!--     <div style="background-color: #ffeb3b; padding: 10px; text-align: center; font-size: 16px; font-weight: bold; border-radius: 5px; color: #333;">
+      <p><strong>Important Note:</strong> This workshop does not produce formal proceedings. Accepted submissions will appear on OpenReview, but authors remain free to submit and publish their work elsewhere in the future.</p>
+    </div> -->
+
+    <h3>Important Dates</h3>
+    <ul>
+        <li><strong>Paper Submission Deadline:</strong> TBD</li>
+        <li><strong>Notification of Acceptance:</strong> TBD</li>
+        <li><strong>Camera-Ready Deadline:</strong> TBD</li>
+        <li><strong>Workshop Date:</strong> TBD</li>
+    </ul>
+
+    
+
+    <h3>Submission Guidelines</h3>
+    <p>Building on the success of the inaugural DeLTa 2025 workshop, DeLTa 2026 expands its scope to address new theoretical and algorithmic frontiers emerging from the rapid evolution of modern deep generative models. 
+        Discussions will be organized along two major axes — Theoretical Foundations and Algorithms & Applications.</p>
+    <h4>Theoretical Foundations include, but are not limited to:</h4>
+    <ul>
+         <li>Unified Theories of Generative Modeling: Develop mathematical frameworks that unify diffusion, flow-matching, energy-based, and autoregressive paradigms, clarifying their equivalence, differences, and underlying stochastic principles.</li>
+         <li>Optimization and Convergence in Flow-Matching and Diffusion Models: Analyze training and sampling dynamics under different solvers, discretization schemes, and noise schedules; derive convergence guarantees and variance bounds.</li>
+         <li>Stochastic Control Perspectives: Explore connections between diffusion-based generative models and stochastic optimal control, enabling principled formulations for learning, sampling, and policy-guided generation.)</li>
+         <li>Post-Training Theoretical Analysis: Study diffusion model post-training phases (e.g., reward-guided fine-tuning, preference alignment) through the lens of optimization, generalization, and stability.</li>
+         <li>Implicit Bias and Regularization in Generative Models: Explore implicit biases present in generative models and their impact on generalization. Study the effectiveness of explicit and implicit regularization techniques</li>
+         <li>Information-Theoretic and Probabilistic Analysis: Apply tools from information theory and Bayesian inference to quantify uncertainty, mutual information, and representation disentanglement in DGMs.</li>
+         <li>Geometry and Manifold Learning: Examine the geometric and topological structure of latent spaces; formalize manifold learning principles to improve controllability and representation quality.</li>
+    </ul>
+
+    <h4>Algorithms & Applications include, but are not limited to:</h4>
+    <ul>
+        <li>Large Language Diffusion Models (LLDMs): Explore architectures that integrate diffusion mechanisms into large language models; study their compositionality, scalability, and multimodal reasoning capabilities.</li>
+        <li>One (few)-Step Generative Modeling: Develop efficient one-step and few-step generative algorithms via flow-matching or learned ODE/SDE solvers, reducing sampling cost while preserving quality.</li>
+        <li>Diffusion Model Post-Training and Adaptation: Design post-training methods for alignment, preference optimization, or reinforcement learning within diffusion frameworks.</li>
+        <li>RMultimodal and Cross-Domain Generation: Integrate text, image, audio, and video modalities through coherent diffusion and flow-based architectures.</li>
+        <li>Structured Data Modeling: Develop algorithms for adapting DGMs to structured domains such as discrete spaces, manifolds, meshes, or graphs, accounting for complex geometric and domain-specific constraints.g</li>
+        <li>Generative models for scientific discovery (AI4Science): Develop DGMS for applications in biology, physics, chemistry, material science and environmental science.</li>
+    </ul>
+
+    <h3>Submission Format</h3>
+    <ul>
+        <li>Submissions must follow the <a href="https://github.com/Delta-Workshop/Delta-Workshop.github.io/raw/refs/heads/main/ICLR%202025%20DeLTa%20Workshop%20Template.zip">DeLTa Workshop style template</a>.</li>
+        <li>Short/Tiny Papers should be a maximum of <strong>4 pages</strong>, excluding references and appendices.</li>
+        <li>Long Papers should be a maximum of <strong>8 pages</strong>, excluding references and appendices.</li>
+        <li>Submission is <strong>double-blind</strong>, and authors must anonymize their manuscripts.</li>
+    </ul>
+
+    <h3>Accepted Submissions</h3>
+    <p>Accepted papers will be presented as <strong>talks</strong> or <strong>posters</strong> during the workshop. 
+       The workshop will select the <strong>best paper</strong> to recognize outstanding contributions in the field.</p>
+
+    <h3>Non-Proceedings Policy</h3>
+    <p>This workshop does not produce formal proceedings. Accepted submissions will appear on OpenReview, 
+    but authors remain free to submit and publish their work elsewhere in the future.</p>
+
+
+
+    
+    <h3>Submission Portal</h3>
+    <p>Submit your paper through the <a href="https://openreview.net/group?id=ICLR.cc/2025/Workshop/DeLTa">OpenReview platform</a>.</p>
+
+    <p>For inquiries, contact us at <a href="mailto:delta.workshop.ml@gmail.com">delta.workshop.ml@gmail.com</a>.</p>
+
+    <h3 style="color: #ff4500; text-transform: uppercase; border-bottom: 2px solid #ff4500;">Important Information About Tiny Papers</h3>
+    <p style="background-color: #fff3cd; padding: 10px; border-left: 5px solid #ff4500;">
+        This year, ICLR is discontinuing the separate “Tiny Papers” track and instead requires each workshop to accept short (3–5 pages in ICLR format, exact page length to be determined by each workshop) paper submissions, with an eye towards inclusion. Authors of these papers will be earmarked for potential funding from ICLR. A separate application for Financial Assistance is required to evaluate eligibility. The application for Financial Assistance will open at the beginning of February and close on March 2, 2025. For more details, visit <a href="https://iclr.cc/Conferences/2025/CallForTinyPapers" target="_blank">https://iclr.cc/Conferences/2025/CallForTinyPapers</a>.
+    </p>
+</section>
+
+
+
+
+<section id="schedule" class="section-style">
+  <h2>Schedule</h2>
+  <!--  -->
+    TBD
+</section>
+
+
+
+       <section id="speakers" class="organizer-section">
+            <h2>Confirmed Speakers [A-Z]</h2>
+           <div class="organizer-container">
+
+               
+
+               <div class="organizer">
+                 <img src="figures/nisha.jpeg" alt="Nisha Chandramoorthy" class="profile-pic">
+                <h3><a class="link" href="https://ni-sha-c.github.io/" target="_blank">Nisha Chandramoorthy</a></h3>
+                <p>Assistant Professor, The University of Chicago</p>
+            </div>
+
+               <div class="organizer">
+                 <img src="figures/Sitan-Chen.png" alt="Sitan Chen" class="profile-pic">
+                <h3><a class="link" href="https://sitanchen.com/" target="_blank">Sitan Chen</a></h3>
+                <p>Assistant Professor, Harvard University</p>
+            </div>
+
+               <div class="organizer">
+                <img src="figures/Arnaud.jpeg" alt="Arnaud Doucet" class="profile-pic">
+                <h3><a class="link" href="https://www.stats.ox.ac.uk/~doucet/" target="_blank">Arnaud Doucet</a></h3>
+                <p>Senior Staff Research Scientist, Google DeepMind</p>
+            </div>
+
+              
+
+              <div class="organizer">
+                <img src="figures/zahra.jpg" alt="Zahra" class="profile-pic">
+                <h3><a class="link" href="https://www.simonsfoundation.org/people/zahra-kadkhodaie/" target="_blank">Zahra Kadkhodaie</a></h3>
+                <p>Research Fellow, Flatiron</p>
+             </div> 
+
+              <div class="organizer">
+                <img src="figures/atsushi.jpeg" alt="Atsushi" class="profile-pic">
+                <h3><a class="link" href="https://sites.google.com/site/atsushinitanda" target="_blank">Atsushi Nitanda</a></h3>
+                <p>Principal Scientist, A*STAR</p>
+             </div>
+               
+
+
+            <div class="organizer">
+                 <img src="figures/Gabriele.jpeg" alt="Gabriele Steidl" class="profile-pic">
+                <h3><a class="link" href="https://www.tu.berlin/imageanalysis/" target="_blank">Gabriele Steidl</a></h3>
+                <p>Professor, TU Berlin</p>
+            </div>
+
+
+                <div class="organizer">
+                <img src="figures/Rene_Vidal.png" alt="Rene Vidal" class="profile-pic">
+                <h3><a class="link" href="http://vision.jhu.edu/rvidal.html" target="_blank">René Vidal</a></h3>
+                <p>Professor, University of Pennsylvania</p>
+            </div>
+
+            
+            
+           </div>      
+        </section>
+
+
+  
+
+
+
+        <section id="organizers" class="organizer-section">
+            <h2>Organizers</h2>
+
+            <div class="organizer-container">
+
+            <div class="organizer">
+                <img src="figures/taiji.jpg" alt="Taiji Suzuki" class="profile-pic">
+                <h3><a class="link" href="https://ibis.t.u-tokyo.ac.jp/suzuki/" target="_blank">Taiji Suzuki</a></h3>
+                <p>Professor, University of Tokyo</p>
+            </div>
+
+            <div class="organizer">
+                <img src="figures/sara.jpeg" alt="Sara Fridovich-Keil" class="profile-pic">
+                <h3><a class="link" href="https://sarafridov.github.io/" target="_blank">Sara Fridovich-Keil</a></h3>
+                <p>Assistant Professor, Georgia Tech</p>
+            </div>
+
+            <div class="organizer">
+                <img src="figures/valentin.jpg" alt="Valentin De Bortoli" class="profile-pic">
+                <h3><a class="link" href="https://vdeborto.github.io/" target="_blank">Valentin De Bortoli</a></h3>
+                <p>Research Scientist, Google DeepMind</p>
+            </div>
+
+            
+            <div class="organizer">
+                <img src="figures/huangwei.JPG" alt="Wei Huang" class="profile-pic">
+                <h3><a class="link" href="https://weihuang05.github.io/" target="_blank">Wei Huang</a></h3>
+                <p>Research Scientist, RIKEN AIP</p>
+            </div>
+
+            <div class="organizer">
+                <img src="figures/mingyuanbai.jpg" alt="Mingyuan Bai" class="profile-pic">
+                <h3><a class="link" href="https://scholar.google.com/citations?user=lo0_2rMAAAAJ&hl=en" target="_blank">Mingyuan Bai</a></h3>
+                <p>Postdoctoral Researcher, RIKEN AIP</p>
+            </div>
+
+            <div class="organizer">
+                <img src="figures/Qu_Qing.jpg" alt="Qing Qu" class="profile-pic">
+                <h3><a class="link" href="https://qingqu.engin.umich.edu//" target="_blank">Qing Qu</a></h3>
+                <p>Assistant Professor, University of Michigan</p>
+            </div>
+
+            <div class="organizer">
+                <img src="figures/andihan.jpg" alt="Andi Han" class="profile-pic">
+                <h3><a class="link" href="https://andihan3.github.io/" target="_blank">Andi Han</a></h3>
+                <p>Lecturer, University of Sydney</p>
+            </div>
+
+
+            <div class="organizer">
+                <img src="figures/kenji.jpeg" alt="Kenji Fukumizu" class="profile-pic">
+                <h3><a class="link" href="https://www.ism.ac.jp/~fukumizu/" target="_blank">Kenji Fukumizu</a></h3>
+                <p>Director, The Institute of Statistical Mathematics</p>
+            </div>
+            
+            
+
+            
+        
+            
+
+            
+
+          </div>      
+        </section>  
+
+       
+
+        
+    </div>
+
+    <footer>
+        <p>Contact us at <a style="color:#ffffe0; text-shadow: 0 0 5px #00FF00; font-weight: bold;" href="mailto:delta.workshop.ml@gmail.com">delta.workshop.ml@gmail.com</a></p>
+
+    </footer>
+</body>
+</html>
